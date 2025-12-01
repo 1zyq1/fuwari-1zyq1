@@ -1,7 +1,6 @@
 ---
 import type { MarkdownHeading } from "astro";
 import DomainSwitcher from "./DomainSwitcher.astro";
-import IPDisplay from "./IPDisplay.astro";
 import Profile from "./Profile.astro";
 import UmamiStats from "./UmamiStats.astro";
 
@@ -19,6 +18,5 @@ const className = Astro.props.class;
     <div id="sidebar-sticky" class="transition-all duration-700 flex flex-col w-full gap-4 top-4 sticky top-4">
         <UmamiStats class="onload-animation" style="animation-delay: 200ms"></UmamiStats>
         <DomainSwitcher class="onload-animation" style="animation-delay: 150ms"></DomainSwitcher>
-        <IPDisplay showIcon={true} />
     </div>
 </div>
