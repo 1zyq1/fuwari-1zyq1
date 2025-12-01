@@ -44,6 +44,7 @@ export const siteConfig: SiteConfig = {
 	officialSites: [
 		{ url: "https://www.1zyq1.top", alias: "netlify" },
 		{ url: "https://blog.vercel.1zyq1.top", alias: "vercel" },
+		{ url: "https://blog.edgeone.1zyq1.top", alias: "EdgeOne" },
 		{ url: "https://blog.cloudflare.1zyq1.top", alias: "cloudflare减速云" },
 	],
 };

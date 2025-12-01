@@ -158,13 +158,50 @@ const officialSites = siteConfig.officialSites || [];
                 latencyText.textContent = '-';
                 latencyText.classList.add('text-red-600', 'dark:text-red-400');
             }
+            
+            // 显示延迟文本
+            latencyText.classList.add('opacity-100');
+            latencyText.classList.remove('opacity-0');
         }
     }
 
+    // 初始化
     initDomainSwitcher();
     testLatency();
+    
+    // 设置定时器，每秒更新一次延迟
+    let latencyInterval;
+    function startLatencyInterval() {
+        // 先清除可能存在的定时器
+        if (latencyInterval) {
+            clearInterval(latencyInterval);
+        }
+        // 每5秒测试一次延迟
+        latencyInterval = setInterval(testLatency, 5000);
+    }
+    
+    // 启动定时器
+    startLatencyInterval();
+    
+    // 页面加载时重新初始化
     document.addEventListener('astro:page-load', () => {
         initDomainSwitcher();
         testLatency();
+        startLatencyInterval();
+    });
+    
+    // 添加页面可见性监听，优化性能
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            // 页面隐藏时停止测试
+            if (latencyInterval) {
+                clearInterval(latencyInterval);
+                latencyInterval = null;
+            }
+        } else {
+            // 页面重新显示时立即测试并重启定时器
+            testLatency();
+            startLatencyInterval();
+        }
     });
 </script>
