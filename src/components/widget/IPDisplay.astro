@@ -1,6 +1,6 @@
 ---
-// src/components/IPDisplay.astro
-import { getClientIP } from "../ipUtils";
+// src/components/widget/IPDisplay.astro
+import { getClientIP } from "../ipUtils"; // 确保路径正确
 import WidgetLayout from "./WidgetLayout.astro";
 
 interface Props {
@@ -10,8 +10,8 @@ interface Props {
 
 const { class: className, style } = Astro.props;
 
-// 获取客户端IP
-const userIP = getClientIP(Astro.request);
+// 获取客户端IP（使用异步获取）
+const userIP = await getClientIP(Astro.request);
 
 // 格式化IP显示
 function formatIP(ip: string): string {
