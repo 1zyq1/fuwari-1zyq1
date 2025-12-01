@@ -1,0 +1,183 @@
+---
+import WidgetLayout from "./WidgetLayout.astro";
+
+interface Props {
+	class?: string;
+	style?: string;
+}
+const { class: className, style } = Astro.props;
+
+// IP获取函数
+function getClientIP(request: Request) {
+	try {
+		const headers = request.headers;
+
+		// 按优先级尝试不同的IP头部
+		const ipHeaders = [
+			"x-real-ip",
+			"x-forwarded-for",
+			"cf-connecting-ip",
+			"fastly-client-ip",
+			"x-client-ip",
+		];
+
+		for (const header of ipHeaders) {
+			const value = headers.get(header);
+			if (value) {
+				const ip = value.split(",")[0]?.trim();
+				if (ip && ip !== "") {
+					// 本地开发环境处理
+					if (ip === "::1") return "127.0.0.1";
+					return ip;
+				}
+			}
+		}
+
+		// 开发环境默认值
+		return import.meta.env.DEV ? "127.0.0.1" : "未知";
+	} catch (error) {
+		console.warn("获取IP失败:", error);
+		return "未知";
+	}
+}
+
+const userIP = getClientIP(Astro.request);
+
+// 格式化IP显示
+function formatIP(ip: string): string {
+	if (ip === "127.0.0.1") return "本地环境";
+	if (ip === "未知") return "未知";
+
+	// 缩短IPv6地址显示
+	if (ip.includes(":")) {
+		return ip.replace(/(:0){1,}/, ":").replace(/^::/, "");
+	}
+
+	return ip;
+}
+
+const displayIP = formatIP(userIP);
+---
+
+<WidgetLayout name="网络信息" id="ip-info" class:list={[className]} {style}>
+	<div class="text-center py-3">
+		<div class="flex items-center justify-center gap-2 mb-3">
+			<svg class="w-6 h-6 text-neutral-500 dark:text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+			</svg>
+			<div class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 font-mono" id="ip-address">{displayIP}</div>
+		</div>
+		<div class="text-sm text-neutral-500 dark:text-neutral-400">当前IP地址</div>
+	</div>
+	
+	<div class="grid grid-cols-2 divide-x divide-neutral-200 dark:divide-neutral-700 text-center pt-3 border-t border-neutral-200 dark:border-neutral-700">
+		<div class="px-2">
+			<div class="text-lg font-bold text-neutral-900 dark:text-neutral-100 font-mono" id="ip-version">
+				{userIP.includes(':') ? 'IPv6' : 'IPv4'}
+			</div>
+			<div class="text-sm text-neutral-500 dark:text-neutral-400">IP版本</div>
+		</div>
+		<div class="px-2">
+			<div class="text-lg font-bold text-neutral-900 dark:text-neutral-100" id="connection-type">
+				<span class="inline-flex items-center">
+					<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+					</svg>
+					HTTP
+				</span>
+			</div>
+			<div class="text-sm text-neutral-500 dark:text-neutral-400">协议类型</div>
+		</div>
+	</div>
+</WidgetLayout>
+
+<script>
+// 客户端IP信息增强
+async function enhanceIPInfo() {
+	try {
+		const ipAddressElement = document.getElementById('ip-address');
+		const ipVersionElement = document.getElementById('ip-version');
+		const connectionTypeElement = document.getElementById('connection-type');
+		
+		if (!ipAddressElement || !ipVersionElement || !connectionTypeElement) return;
+		
+		// 获取完整IP地址
+		const fullIP = ipAddressElement.textContent;
+		
+		// 如果是真实IP（非本地），尝试获取更多信息
+		if (!fullIP.includes('127.0.0.1') && fullIP !== '未知') {
+			// 添加复制功能
+			ipAddressElement.classList.add('cursor-pointer', 'hover:text-blue-500', 'transition-colors');
+			ipAddressElement.title = '点击复制IP地址';
+			
+			ipAddressElement.addEventListener('click', async () => {
+				try {
+					await navigator.clipboard.writeText(fullIP);
+					
+					// 显示复制成功提示
+					const originalText = ipAddressElement.textContent;
+					ipAddressElement.textContent = '已复制!';
+					ipAddressElement.classList.add('text-green-500');
+					
+					setTimeout(() => {
+						ipAddressElement.textContent = originalText;
+						ipAddressElement.classList.remove('text-green-500');
+					}, 1500);
+				} catch (err) {
+					console.error('复制失败:', err);
+				}
+			});
+			
+			// 获取IP地理位置信息（可选）
+			try {
+				// 这里可以使用免费的IP API，例如 ip-api.com
+				const response = await fetch(`https://ipapi.co/${fullIP}/json/`);
+				if (response.ok) {
+					const data = await response.json();
+					
+					// 在IP地址下方显示位置信息
+					const locationInfo = document.createElement('div');
+					locationInfo.className = 'text-xs text-neutral-500 dark:text-neutral-400 mt-1';
+					locationInfo.textContent = data.city ? `${data.city}, ${data.country_name}` : '未知位置';
+					
+					ipAddressElement.parentElement?.appendChild(locationInfo);
+				}
+			} catch (geoError) {
+				// 地理位置API失败时不显示错误
+				console.log('地理位置信息获取失败，使用基础模式');
+			}
+		}
+		
+		// 检测连接类型（HTTPS/HTTP）
+		if (window.location.protocol === 'https:') {
+			connectionTypeElement.innerHTML = `
+				<span class="inline-flex items-center text-green-500">
+					<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+					</svg>
+					HTTPS
+				</span>
+			`;
+		}
+		
+		// 更新IP版本显示样式
+		const ipVersion = ipVersionElement.textContent;
+		if (ipVersion === 'IPv6') {
+			ipVersionElement.classList.add('text-purple-500');
+		} else {
+			ipVersionElement.classList.add('text-blue-500');
+		}
+		
+	} catch (error) {
+		console.error('IP信息增强失败:', error);
+	}
+}
+
+// 页面加载时执行
+document.addEventListener('DOMContentLoaded', enhanceIPInfo);
+
+// 支持Swup页面切换
+if (window.swup) {
+	window.swup.hooks.on('page:view', enhanceIPInfo);
+}
+</script>
