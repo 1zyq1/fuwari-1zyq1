@@ -177,7 +177,7 @@ const officialSites = siteConfig.officialSites || [];
             clearInterval(latencyInterval);
         }
         // 每5秒测试一次延迟
-        latencyInterval = setInterval(testLatency, 5000);
+        latencyInterval = setInterval(testLatency, 10000);
     }
     
     // 启动定时器
