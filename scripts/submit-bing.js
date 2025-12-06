@@ -102,7 +102,8 @@ async function main() {
 
 	for (const file of htmlFiles) {
 		const relative = file.replace(distDir, "");
-		const url = SITE_URL + relative.replace(/index\.html$/, "");
+		// 修改 URL 拼接，确保使用正斜杠替换反斜杠
+		const url = SITE_URL + relative.replace(/\\+/g, '/').replace(/index\.html$/, "");
 		await submitToBing(url);
 	}
 
