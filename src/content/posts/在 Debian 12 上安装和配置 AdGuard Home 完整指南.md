@@ -6,8 +6,6 @@ description: "获取在 Debian 12 上安装和配置 AdGuard Home 的终极指�
 draft: false
 ---
 
-AdGuard Home 是一款全网广告拦截与隐私保护工具，它可以作为您家庭的 DNS 服务器，拦截广告、恶意软件和跟踪器。本教程将详细介绍如何在 Debian 12 上安装和配置 AdGuard Home。
-
 # 系统要求
 
 - **操作系统**: Debian 12 (Bookworm)
