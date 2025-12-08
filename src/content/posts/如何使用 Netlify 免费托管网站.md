@@ -3,6 +3,7 @@ title: "如何使用 Netlify 免费托管网站"
 published: 2025-11-09
 description: "一篇关于如何使用 Netlify 免费托管网站的指南，涵盖其优势、部署步骤和与其他托管方案的对比。"
 draft: false
+image: '../../assets/images/2025-12-08213741.jpg'
 ---
 
 # 如何使用 Netlify 免费托管网站
@@ -32,12 +33,14 @@ Netlify 是一个非常强大的静态网站托管平台，它提供了免费托
 1.  **登录 Netlify**:
     *   访问 [Netlify 官方网站](https://www.netlify.com/) (可能需要科学上网工具)。
     *   使用你的 GitHub 账号授权登录 Netlify。
-
+![1](../../assets/images/2025-12-08212639.jpg)
 2.  **新建站点**:
     *   在 Netlify 主页，点击 "New site from git" (从 Git 仓库新建站点) 按钮。
 
 3.  **选择仓库**:
-    *   点击 "Create a new site" (创建新站点)。
+    *   点击 "Import an existing project" (创建新站点)。
+    ![2](../../assets/images/2025-12-08212901.jpg)
+    ![3](../../assets/images/2025-12-08213042.jpg)
     *   选择你想要部署的 Git 仓库。你可以选择授权 Netlify 访问你所有的 GitHub 仓库，或者指定一个特定的仓库。
     *   **注意**: 如果你的项目源码和构建产物（如 `dist` 目录）是分开管理的（例如，将构建产物放在一个单独的仓库中），请选择包含构建产物的那个仓库。如果源码和构建产物在同一个仓库，你需要确保 Netlify 知道哪个目录是构建产物。
 
@@ -53,9 +56,9 @@ Netlify 是一个非常强大的静态网站托管平台，它提供了免费托
 ## 自定义域名
 
 1.  **添加或注册域名**:
-    *   在 Netlify 的站点管理面板中，找到 "Add or register domain" (添加或注册域名) 选项。
+    *   在 Netlify 的站点管理面板中，找到 "Domain management" (添加或注册域名) 选项。
     *   你可以添加一个已有的域名，或者在 Netlify 上注册新域名。
-
+    ![4](../../assets/images/2025-12-08213250.jpg)
 2.  **域名解析**:
     *   添加域名后，Netlify 会提供相应的 DNS 记录信息。
     *   你需要在你的域名注册商（如阿里云、腾讯云、西部数码等）的控制台中找到 DNS 管理设置，并按照 Netlify 的指示配置 A 记录或 CNAME 记录。

@@ -1,7 +1,7 @@
 ---
 title: 如何在Linux服务器上安装和配置哪吒监控 Dashboard
 published: 2025-11-02
-description: '详细指南：如何在您的 Linux 服务器上安装和配置哪吒监控 Dashboard，包括准备工作、安装步骤、域名配置和安全设置。'
+description: '哪吒监控 作为一款开源的服务器监控解决方案，提供了轻量级、实时性强的监控能力，让您随时随地掌握服务器健康状况。本文将带您从零开始，完成哪吒监控 Dashboard 的全套安装与配置。'
 category: '监控'
 draft: false
 ---
