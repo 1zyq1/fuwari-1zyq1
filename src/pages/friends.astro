@@ -1,0 +1,109 @@
+---
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<MainGridLayout title="友链">
+    <div class="card-base p-6 md:p-8">
+        <div class="flex items-center gap-2 mb-6">
+            <div class="h-8 w-8 rounded-lg bg-[var(--primary)] flex items-center justify-center text-white dark:text-black/70">
+                <Icon name="material-symbols:diversity-3" class="text-[1.5rem]">
+            </div>
+            <h1 class="text-2xl font-bold text-black dark:text-white">友链</h1>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="https://www.hayfrp.com" target="_blank" class="friend-card">
+                <div class="flex items-center gap-2">
+                    <img src="https://console.hayfrp.com/favicon.ico" loading="lazy" class="w-5 h-5 rounded">
+                    <div class="font-bold text-black dark:text-white">Harfrp</div>
+                </div>
+                <div class="text-sm text-black/50 dark:text-white/50">和谐网络科技工作室旗下的公益Frp</div>
+            </a>
+            </div>
+<br>
+
+
+        <!-- 申请友链 -->
+        <div class="sponsors-section mt-8">
+        	<h2 class="text-xl font-bold text-black dark:text-white mb-4 flex items-center gap-2">
+        		<Icon name="material-symbols:group" class="text-[1.5rem] text-[var(--primary)]"/>
+        		将您的网站加入本站友链
+        	</h2>
+        	<p class="text-sm text-black/60 dark:text-white/60">
+        		联系我 <a  
+target="_blank" title="点击添加1zyq1好友">2289308183@qq.com</a>
+        	</p>
+        <br>
+    </div>
+
+</MainGridLayout>
+
+<style>
+    :root {
+        --primary: #3b82f6;
+        --card-bg: #ffffff;
+        --btn-regular-bg-hover: #f1f5f9;
+        --btn-regular-bg-active: #e2e8f0;
+        --btn-content: #1e293b;
+        --border-color: #e5e7eb;
+    }
+
+    [data-theme="dark"] {
+        --card-bg: #1e293b;
+        --btn-regular-bg-hover: #334155;
+        --btn-regular-bg-active: #475569;
+        --btn-content: #f1f5f9;
+        --border-color: #374151;
+    }
+
+    .friend-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+    }
+    
+    .friend-card:active {
+        transform: scale(0.98);
+        background-color: var(--btn-regular-bg-active);
+    }
+    
+    .friend-card:hover {
+        background-color: var(--btn-regular-bg-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .friend-card:hover .font-bold {
+        color: var(--btn-content);
+    }
+    
+    .friend-card:hover .text-sm {
+        color: #374151;
+    }
+
+    [data-theme="dark"] .friend-card:hover .text-sm {
+        color: #f9fafb;
+    }
+
+    .friend-card .font-bold,
+    .friend-card .text-sm {
+        transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+        .card-base {
+            padding: 1rem;
+        }
+        
+        .friend-card {
+            padding: 0.75rem;
+        }
+    }
+</style>

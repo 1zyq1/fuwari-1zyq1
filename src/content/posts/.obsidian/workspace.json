@@ -1,0 +1,201 @@
+{
+  "main": {
+    "id": "eaad3e144f96bb20",
+    "type": "split",
+    "children": [
+      {
+        "id": "86daf51fd22edda0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "77144d8eee78aeda",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "飞牛更新iscsi了！！！.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "飞牛更新iscsi了！！！"
+            }
+          },
+          {
+            "id": "c085cb77899362bd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "飞牛更新iscsi了！！！.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "飞牛更新iscsi了！！！"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8b308befd7e946ad",
+    "type": "split",
+    "children": [
+      {
+        "id": "59cca1e3839adcea",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d098691575d1c1cf",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "d0a996624b86235d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "5d7023ac3c0cc9d6",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "82cf574104fdf053",
+    "type": "split",
+    "children": [
+      {
+        "id": "0fa0203d598864e5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "df3e169d14b29c12",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "未命名.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "未命名 的反向链接列表"
+            }
+          },
+          {
+            "id": "20ec2b7cc260ee33",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "未命名.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "未命名 的出链列表"
+            }
+          },
+          {
+            "id": "73af8c12e20e20cc",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "38edc3cf01c87599",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "未命名.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "未命名 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:创建新数据库": false
+    }
+  },
+  "active": "77144d8eee78aeda",
+  "lastOpenFiles": [
+    "image.png",
+    "在 Debian 12 上安装和配置 AdGuard Home 完整指南.md",
+    "通过 WireGuard 加密隧道安全访问 NFS 共享文件.md",
+    "国内为什么无法访问GitHub？.md",
+    "飞牛更新iscsi了！！！.md",
+    "Git 使用教程.md",
+    "使用 AdGuard Home 搭建自用 DoH 服务.md",
+    "src/assets/images.md",
+    "src/assets",
+    "src",
+    "国内为什么无法访问GitHub？几个方法教你搞定.md",
+    "未命名.base"
+  ]
+}

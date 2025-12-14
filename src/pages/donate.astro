@@ -1,0 +1,184 @@
+---
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+---
+
+<MainGridLayout title="赞助支持">
+    <div class="card-base p-6 md:p-8">
+        <div class="flex items-center gap-2 mb-6">
+            <div class="h-8 w-8 rounded-lg bg-[var(--primary)] flex items-center justify-center text-white dark:text-black/70">
+                <!-- 爱心图标 -->
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                </svg>
+            </div>
+            <h1 class="text-2xl font-bold text-black dark:text-white">赞助支持</h1>
+        </div>
+
+        <div class="mb-6">
+            <p class="text-lg text-black/80 dark:text-white/80 mb-3">
+                如果您觉得我的内容对您有帮助，欢迎通过以下方式支持我的创作。您的每一份支持都是我持续创作的动力！
+            </p>
+            <p class="text-sm text-black/60 dark:text-white/60">
+                所有赞助将用于网站维护、服务器费用以及内容创作。
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 max-w-4xl mx-auto">
+            <!-- 支付宝 -->
+            <div class="donate-card">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="h-10 w-10 rounded-lg bg-blue-500 flex items-center justify-center">
+                        <!-- 支付宝 SVG 图标 -->
+                        <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16.4 5.2c-1.2 0-2.3.8-2.8 2c-.5-.7-1.2-1.2-2.1-1.2-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7c.9 0 1.7-.4 2.2-1.1.5.7 1.3 1.1 2.2 1.1 1.5 0 2.7-1.2 2.7-2.7s-1.2-2.7-2.7-2.7zm-5 3.2c0-.6.5-1.1 1.1-1.1s1.1.5 1.1 1.1-.5 1.1-1.1 1.1-1.1-.5-1.1-1.1zm5 0c0-.6.5-1.1 1.1-1.1s1.1.5 1.1 1.1-.5 1.1-1.1 1.1-1.1-.5-1.1-1.1z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-black dark:text-white">支付宝</h3>
+                        <p class="text-sm text-black/60 dark:text-white/60">扫码支付</p>
+                    </div>
+                </div>
+                <div class="qr-code-placeholder">
+                    <img src="/donate/alipay.jpg" alt="支付宝二维码" class="w-48 h-48 mx-auto rounded-lg" />
+                </div>
+            </div>
+
+            <!-- 微信支付 -->
+            <div class="donate-card">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="h-10 w-10 rounded-lg bg-green-500 flex items-center justify-center">
+                        <!-- 微信 SVG 图标 -->
+                        <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8.691 4.9c-.9.4-1.7 1-2.4 1.7-.7.7-1.3 1.5-1.7 2.4-.4.9-.6 1.9-.6 2.9 0 1 .2 2 .6 2.9.4.9 1 1.7 1.7 2.4.7.7 1.5 1.3 2.4 1.7.9.4 1.9.6 2.9.6 1 0 2-.2 2.9-.6.9-.4 1.7-1 2.4-1.7.7-.7 1.3-1.5 1.7-2.4.4-.9.6-1.9.6-2.9 0-1-.2-2-.6-2.9-.4-.9-1-1.7-1.7-2.4-.7-.7-1.5-1.3-2.4-1.7-.9-.4-1.9-.6-2.9-.6-1 0-2 .2-2.9.6z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-black dark:text-white">微信支付</h3>
+                        <p class="text-sm text-black/60 dark:text-white/60">扫码支付</p>
+                    </div>
+                </div>
+                <div class="qr-code-placeholder">
+                    <img src="/donate/wechat.jpg" alt="微信支付二维码" class="w-48 h-48 mx-auto rounded-lg" />
+                </div>
+            </div>
+        </div>
+
+        <!-- 其他支持方式 -->
+        <div class="card-base p-6 mb-6">
+            <h2 class="text-xl font-bold text-black dark:text-white mb-3">其他支持方式</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="support-card">
+                    <div class="flex items-center gap-2 mb-2">
+                        <!-- 分享图标 -->
+                        <svg class="w-5 h-5 text-[var(--primary)]" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"/>
+                        </svg>
+                        <span class="font-semibold text-black dark:text-white">分享推荐</span>
+                    </div>
+                    <p class="text-sm text-black/60 dark:text-white/60">
+                        将我的博客分享给更多朋友
+                    </p>
+                </div>
+
+                <div class="support-card">
+                    <div class="flex items-center gap-2 mb-2">
+                        <!-- 评论图标 -->
+                        <svg class="w-5 h-5 text-[var(--primary)]" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-semibold text-black dark:text-white">留言互动</span>
+                    </div>
+                    <p class="text-sm text-black/60 dark:text-white/60">
+                        在文章下方留下您的想法
+                    </p>
+                </div>
+
+                <div class="support-card">
+                    <div class="flex items-center gap-2 mb-2">
+                        <!-- 星星图标 -->
+                        <svg class="w-5 h-5 text-[var(--primary)]" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <span class="font-semibold text-black dark:text-white">关注订阅</span>
+                    </div>
+                    <p class="text-sm text-black/60 dark:text-white/60">
+                        订阅RSS或关注社交媒体
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 赞助者列表 -->
+        <div class="sponsors-section card-base p-6">
+            <h2 class="text-xl font-bold text-black dark:text-white mb-3 flex items-center gap-2">
+                <!-- 人群图标 -->
+                <svg class="w-6 h-6 text-[var(--primary)]" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                </svg>
+                <span>感谢这些小伙伴的支持</span>
+            </h2>
+            <p class="text-sm text-black/60 dark:text-white/60 mb-4">
+                如果您已赞助，并且想加入赞助名单，请通过邮件联系
+            </p>
+            <div class="sponsors-grid">
+                <!-- 赞助者示例 -->
+                <div class="sponsor-card">
+                    <div class="flex items-center gap-3 p-4 rounded-lg bg-[var(--card-bg)] border border-black/10 dark:border-white/10">
+                        <div class="w-10 h-10 rounded-full bg-gray-300 dark:bg-gray-600 flex items-center justify-center overflow-hidden">
+                            <!-- 默认用户图标 -->
+                            <svg class="w-6 h-6 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-black dark:text-white text-sm">热心网友</h4>
+                            <p class="text-xs text-black/60 dark:text-white/60">2025-10-10</p>
+                        </div>
+                        <div class="text-xs text-[var(--primary)] font-medium">50 ￥</div>
+                    </div>
+                </div>
+
+                <div class="sponsor-card">
+                    <div class="flex items-center gap-3 p-4 rounded-lg bg-[var(--card-bg)] border border-black/10 dark:border-white/10">
+                        <div class="w-10 h-10 rounded-full bg-gray-300 dark:bg-gray-600 flex items-center justify-center overflow-hidden">
+                            <svg class="w-6 h-6 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-black dark:text-white text-sm">匿名用户</h4>
+                            <p class="text-xs text-black/60 dark:text-white/60">2025-10-10</p>
+                        </div>
+                        <div class="text-xs text-[var(--primary)] font-medium">20 ￥</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</MainGridLayout>
+
+<style>
+.donate-card {
+    @apply flex flex-col p-4 rounded-lg bg-[var(--card-bg)] border border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 transition;
+}
+
+.support-card {
+    @apply p-4 rounded-lg bg-[var(--card-bg)] hover:bg-black/5 dark:hover:bg-white/5 transition;
+}
+
+.qr-code-placeholder {
+    @apply text-center;
+}
+
+.sponsors-section {
+    @apply mt-6;
+}
+
+.sponsors-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+.sponsor-card {
+    @apply transition-all duration-200 hover:shadow-md hover:scale-105;
+}
+</style>
