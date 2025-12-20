@@ -25,14 +25,14 @@ const { class: className, style } = Astro.props;
     </div>
 </WidgetLayout>
 
-<script>
+<script is:inline>
 const UMAMI_CONFIG = {
     baseUrl: 'https://umami.1zyq1.top/analytics/us/api',
     websiteId: '5495a41f-cb18-43be-b347-579bb46ea0e8',
     shareToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJzaXRlSWQiOiI1NDk1YTQxZi1jYjE4LTQzYmUtYjM0Ny01NzliYjQ2ZWEwZTgiLCJpYXQiOjE3NjE1Njk1Mjl9.zoIekK5ypfbtlBPRYrMImhHRd4RjH7QYfSjW1UNeYns'
 };
 
-function formatNumber(num: number): string {
+function formatNumber(num) {
     if (num >= 1000000) {
         return (num / 1000000).toFixed(1) + 'M';
     } else if (num >= 1000) {
@@ -42,9 +42,14 @@ function formatNumber(num: number): string {
 }
 
 async function fetchUmamiStats() {
+    // ✅ 开发环境：不请求、不污染统计
+    if (import.meta.env.DEV) {
+        return;
+    }
+
     try {
         const endAt = Date.now();
-        const startAt = 0;
+        const startAt = Date.now() - 1000 * 60 * 60 * 24 * 365; // 最近一年
 
         const url = `${UMAMI_CONFIG.baseUrl}/websites/${UMAMI_CONFIG.websiteId}/stats?startAt=${startAt}&endAt=${endAt}&unit=hour&timezone=Asia%2FShanghai`;
 
@@ -61,6 +66,7 @@ async function fetchUmamiStats() {
         }
 
         const data = await response.json();
+
         const pageviewsElement = document.getElementById('total-pageviews');
         const visitsElement = document.getElementById('total-visits');
         const visitorsElement = document.getElementById('total-visitors');
@@ -68,23 +74,20 @@ async function fetchUmamiStats() {
         if (pageviewsElement) {
             pageviewsElement.textContent = formatNumber(data.pageviews || 0);
         }
-
         if (visitsElement) {
             visitsElement.textContent = formatNumber(data.visits || 0);
         }
-
         if (visitorsElement) {
             visitorsElement.textContent = formatNumber(data.visitors || 0);
         }
 
     } catch (error) {
         console.error('获取Umami统计数据失败:', error);
-        const elements = ['total-pageviews', 'total-visits', 'total-visitors'];
-        elements.forEach(id => {
-            const element = document.getElementById(id);
-            if (element) {
-                element.textContent = '获取失败';
-                element.classList.add('text-red-500');
+        ['total-pageviews', 'total-visits', 'total-visitors'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.textContent = '获取失败';
+                el.classList.add('text-red-500');
             }
         });
     }
@@ -92,7 +95,9 @@ async function fetchUmamiStats() {
 
 document.addEventListener('DOMContentLoaded', fetchUmamiStats);
 
-if (window.swup) {
+// ✅ 防止 swup 重复绑定
+if (window.swup && !window.__umamiStatsBound) {
+    window.__umamiStatsBound = true;
     window.swup.hooks.on('page:view', fetchUmamiStats);
 }
 </script>
