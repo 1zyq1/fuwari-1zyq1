@@ -51,7 +51,6 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Home,
 		LinkPreset.Archive,
 		LinkPreset.About,
-		LinkPreset.Tags,
 		{
 			name: "统计",
 			url: "https://cloud.umami.is/share/grZsgWAQzr0s5BVo",
