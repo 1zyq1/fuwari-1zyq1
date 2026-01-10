@@ -52,11 +52,6 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Archive,
 		LinkPreset.About,
 		{
-			name: "Bangumi",
-			url: "/bangumi/",
-			external: false,
-		},
-		{
 			name: "友链",
 			url: "/friends/",
 			external: false,
@@ -64,6 +59,16 @@ export const navBarConfig: NavBarConfig = {
 		{
 			name: "赞助",
 			url: "/donate/",
+			external: false,
+		},
+		{
+			name: "统计",
+			url: "https://cloud.umami.is/share/grZsgWAQzr0s5BVo",
+			external: false,
+		},
+		{
+			name: "服务状态",
+			url: "https://uptimekuma.1zyq1.com",
 			external: false,
 		},
 	],
