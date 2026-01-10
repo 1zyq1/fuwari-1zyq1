@@ -42,7 +42,7 @@ export const siteConfig: SiteConfig = {
 	favicon: [],
 
 	officialSites: [
-		{ url: "https://www.1zyq1.top", alias: "EdgeOne" }, // 添加官方站点
+		{ url: "https://www.1zyq1.com", alias: "EdgeOne" }, // 添加官方站点
 	],
 };
 
