@@ -54,12 +54,12 @@ export const navBarConfig: NavBarConfig = {
 		{
 			name: "统计",
 			url: "https://cloud.umami.is/share/grZsgWAQzr0s5BVo",
-			external: false,
+			external: true,
 		},
 		{
 			name: "服务状态",
 			url: "https://uptimekuma.1zyq1.com",
-			external: false,
+			external: true,
 		},
 	],
 };
