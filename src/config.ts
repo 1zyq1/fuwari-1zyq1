@@ -59,7 +59,7 @@ export const navBarConfig: NavBarConfig = {
 		},
 		{
 			name: "服务状态",
-			url: "https://uptimekuma.1zyq1.com",
+			url: "https://uptimekuma.1zyq1.com/status/default",
 			external: true,
 		},
 	],
