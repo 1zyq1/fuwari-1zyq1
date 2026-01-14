@@ -1,6 +1,6 @@
 ---
 title: 闲着没事让Ai写了一个github反代
-published: 2025-12-06
+published: 2026-01-14
 description: '此项目基于cloudflare workers和腾讯云EdgeOne构建，旨在解决国内访问GitHub速度慢、不稳定的问题。通过全球CDN节点分发，为用户提供高速、稳定的GitHub访问体验。'
 tags: []
 category: ''
