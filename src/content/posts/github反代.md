@@ -25,7 +25,7 @@ GitHub 加速服务是一个基于 Cloudflare Workers 和腾讯云 EdgeOne 构�
 - 加速用户仓库列表加载
 - 提升用户资料查看体验
 
-### 3. 多线路选择
+### 3. 多线路选择(有Bug删了)
 - 提供多条加速线路
 - 实时延迟测试
 - 自动选择最优线路
@@ -46,12 +46,6 @@ GitHub 加速服务是一个基于 Cloudflare Workers 和腾讯云 EdgeOne 构�
 - Cloudflare Workers 部署
 - Cloudflare CDN 加速
 - 腾讯云 EdgeOne CDN 节点
-
-### 性能优化
-- 智能缓存策略
-- 图片自动压缩
-- 代码自动压缩
-- Gzip/Brotli 压缩传输
 
 ## 使用方法
 
