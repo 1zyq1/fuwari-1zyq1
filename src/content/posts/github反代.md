@@ -15,27 +15,10 @@ GitHub 加速服务是一个基于 Cloudflare Workers 和腾讯云 EdgeOne 构�
 
 ## 核心功能
 
-### 1. 文件下载加速
+### 文件下载加速
 - 支持 GitHub 仓库文件加速下载
 - 支持 Releases 资源文件加速
 - 支持源码压缩包加速下载
-
-### 2. 用户主页加速
-- 快速访问 GitHub 用户主页
-- 加速用户仓库列表加载
-- 提升用户资料查看体验
-
-### 3. 多线路选择(有Bug删了)
-- 提供多条加速线路
-- 实时延迟测试
-- 自动选择最优线路
-
-### 4. 安全保护
-- HTTPS 加密传输
-- 敏感页面安全重定向
-- 防止敏感信息泄露
-
-## 技术架构
 
 ### 前端技术
 - 纯 HTML/CSS/JavaScript 实现
@@ -52,7 +35,7 @@ GitHub 加速服务是一个基于 Cloudflare Workers 和腾讯云 EdgeOne 构�
 ### 在线使用
 访问部署好的服务，输入 GitHub 链接或用户名即可生成加速链接。   
 - 访问 [GitHub反代](https://github.1zyq1.com/) 
-
+- 访问 [源代码](https://github.com/1zyq1/Worker-github/) 
 ---
 
 **让 GitHub 访问更快速，让开发更高效！**
