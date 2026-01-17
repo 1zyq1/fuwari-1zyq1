@@ -14,7 +14,7 @@ lang: ''
 GitHub 加速服务是一个基于 Cloudflare Workers 和腾讯云 EdgeOne 构建的 GitHub 内容加速工具，旨在解决国内访问 GitHub 速度慢、不稳定的问题。通过全球 CDN 节点分发，为用户提供高速、稳定的 GitHub 访问体验。
 
 ## 核心功能
-
+![1](../../assets/images/155949.png)
 ### 文件下载加速
 - 支持 GitHub 仓库文件加速下载
 - 支持 Releases 资源文件加速
