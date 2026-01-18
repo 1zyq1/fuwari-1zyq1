@@ -1,6 +1,22 @@
 ---
 import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { Icon } from "astro-icon/components";
+
+// 友链数据
+const friends = [
+    {
+        name: "Harfrp",
+        url: "https://www.hayfrp.com",
+        icon: "https://console.hayfrp.com/favicon.ico",
+        description: "和谐网络科技工作室旗下的公益Frp"
+    },
+    {
+        name: "THW's Blog",
+        url: "https://image.tianhw.top",
+        icon: "https://image.tianhw.top/avatar.webp",
+        description: "前途似海，来日方长"
+    }
+];
 ---
 
 <MainGridLayout title="友链">
@@ -12,25 +28,16 @@ import { Icon } from "astro-icon/components";
             <h1 class="text-2xl font-bold text-black dark:text-white">友链</h1>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <a href="https://www.hayfrp.com" target="_blank" class="friend-card">
-                <div class="flex items-center gap-2">
-                    <img src="https://console.hayfrp.com/favicon.ico" loading="lazy" class="w-5 h-5 rounded">
-                    <div class="font-bold text-black dark:text-white">Harfrp</div>
-                </div>
-                <div class="text-sm text-black/50 dark:text-white/50">和谐网络科技工作室旗下的公益Frp</div>
-            </a>
-            </div>
-<br>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <a href="https://image.tianhw.top" target="_blank" class="friend-card">
-                <div class="flex items-center gap-2">
-                    <img src="https://image.tianhw.top/avatar.webp" loading="lazy" class="w-5 h-5 rounded">
-                    <div class="font-bold text-black dark:text-white"> THW's Blog </div>
-                </div>
-                <div class="text-sm text-black/50 dark:text-white/50">前途似海，来日方长</div>
-            </a>
-            </div>
-<br>
+            {friends.map(friend => (
+                <a href={friend.url} target="_blank" class="friend-card">
+                    <div class="flex items-center gap-2">
+                        <img src={friend.icon} loading="lazy" class="w-5 h-5 rounded">
+                        <div class="font-bold text-black dark:text-white">{friend.name}</div>
+                    </div>
+                    <div class="text-sm text-black/50 dark:text-white/50">{friend.description}</div>
+                </a>
+            ))}
+        </div>
 
 
         <!-- 申请友链 -->
