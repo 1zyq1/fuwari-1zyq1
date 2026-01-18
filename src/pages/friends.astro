@@ -40,6 +40,25 @@ const friends = [
             ))}
         </div>
 
+    <!-- 置顶公告 -->
+    <div class="mt-8 p-4 rounded-lg bg-[var(--card-bg)] border border-[var(--border-color)]">
+        <div class="flex items-center gap-2 mb-2">
+            <div class="h-6 w-6 rounded bg-[var(--primary)] flex items-center justify-center text-white dark:text-black/70">
+                <Icon name="material-symbols:push-pin" class="text-[1rem]">
+            </div>
+            <h2 class="text-lg font-bold text-black dark:text-white">置顶公告</h2>
+        </div>
+        <div class="text-sm text-black/80 dark:text-white/80">
+            <p>欢迎来到我的友链页面！如果您想交换友链，请在评论区留言，格式如下：</p>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>name：您的网站名称</li>
+                <li>url：您的网站链接</li>
+                <li>icon：您的网站图标链接</li>
+                <li>description：您的网站简介</li>
+            </ul>
+        </div>
+    </div>
+
     <!-- 评论区 -->
     <div class="mt-8">
         <Giscus
