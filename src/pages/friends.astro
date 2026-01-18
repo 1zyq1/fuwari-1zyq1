@@ -1,6 +1,7 @@
 ---
 import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { Icon } from "astro-icon/components";
+import Giscus from "@components/misc/Giscus.astro";
 
 // 友链数据
 const friends = [
@@ -12,7 +13,7 @@ const friends = [
     },
     {
         name: "THW's Blog",
-        url: "https://image.tianhw.top",
+        url: "https://blog.tianhw.top",
         icon: "https://image.tianhw.top/avatar.webp",
         description: "前途似海，来日方长"
     }
@@ -34,23 +35,19 @@ const friends = [
                         <img src={friend.icon} loading="lazy" class="w-5 h-5 rounded">
                         <div class="font-bold text-black dark:text-white">{friend.name}</div>
                     </div>
-                    <div class="text-sm text-black/50 dark:text-white/50">{friend.description}</div>
+                    <div class="text-sm text-white">{friend.description}</div>
                 </a>
             ))}
         </div>
 
-
-        <!-- 申请友链 -->
-        <div class="sponsors-section mt-8">
-        	<h2 class="text-xl font-bold text-black dark:text-white mb-4 flex items-center gap-2">
-        		<Icon name="material-symbols:group" class="text-[1.5rem] text-[var(--primary)]"/>
-        		将您的网站加入本站友链
-        	</h2>
-        	<p class="text-sm text-black/60 dark:text-white/60">
-        		联系我 <a  
-target="_blank" title="点击添加1zyq1好友">2289308183@qq.com</a>
-        	</p>
-        <br>
+    <!-- 评论区 -->
+    <div class="mt-8">
+        <Giscus
+            repo="1zyq1/fuwari-comments"
+            repoId="R_kgDOP906uQ"
+            category="Announcements"
+            categoryId="DIC_kwDOP906uc4CwWb4"
+        />
     </div>
 
 </MainGridLayout>
