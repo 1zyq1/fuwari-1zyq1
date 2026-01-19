@@ -79,18 +79,6 @@ const uiOpacity =
 		? localStorage.getItem("ui-opacity") || "0.83"
 		: "0.83";
 
-
-
-// 检测是否为移动设备
-const isMobile = Astro.request.headers.get('user-agent')?.match(/Mobile|Android|iPhone|iPad|iPod/i);
-const currentUrl = Astro.url;
-
-// 如果是移动设备且没有desktop参数，则重定向到带desktop参数的版本
-if (isMobile && !currentUrl.searchParams.has('desktop')) {
-    const redirectUrl = new URL(currentUrl);
-    redirectUrl.searchParams.set('desktop', 'true');
-    return Astro.redirect(redirectUrl.toString(), 302);
-}
 ---
 
 <!DOCTYPE html>
