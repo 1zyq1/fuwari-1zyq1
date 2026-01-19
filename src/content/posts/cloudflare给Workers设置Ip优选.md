@@ -2,7 +2,7 @@
 title: cloudflare给Workers设置Ip优选
 published: 2026-01-18
 description: "我将向你展示cloudflare给Workers设置Ip优选的方法，且不需要绑定银行卡！"
-image: '../../assets/images/https___github.1zyq1.com__多地区多线路HTTP测速.png'
+image: '../../assets/images/https___github.1zyq1.com.png'
 category: ''
 draft: false 
 ---
@@ -24,6 +24,6 @@ draft: false
 ![3](../../assets/images/140829.png)
 # 4. 对比
 优选
-![4](../../assets/images/https___github.1zyq1.com__多地区多线路HTTP测速.png)
+![4](../../assets/images/https___github.1zyq1.com.png)
 未优选
 ![5](../../assets/images/141831.png)
