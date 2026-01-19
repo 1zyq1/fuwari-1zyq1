@@ -81,12 +81,12 @@ const uiOpacity =
 
 
 
-// 修改变量名
+// 检测是否为移动设备
 const isMobile = Astro.request.headers.get('user-agent')?.match(/Mobile|Android|iPhone|iPad|iPod/i);
-const currentUrl = Astro.url; // 改名，避免冲突
-// 修改第55行
+const currentUrl = Astro.url;
+
+// 如果是移动设备且没有desktop参数，则重定向到带desktop参数的版本
 if (isMobile && !currentUrl.searchParams.has('desktop')) {
-    // 重定向到带参数版本
     const redirectUrl = new URL(currentUrl);
     redirectUrl.searchParams.set('desktop', 'true');
     return Astro.redirect(redirectUrl.toString(), 302);
