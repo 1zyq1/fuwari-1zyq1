@@ -78,6 +78,19 @@ const uiOpacity =
 	typeof window !== "undefined"
 		? localStorage.getItem("ui-opacity") || "0.83"
 		: "0.83";
+
+
+
+// 修改变量名
+const isMobile = Astro.request.headers.get('user-agent')?.match(/Mobile|Android|iPhone|iPad|iPod/i);
+const currentUrl = Astro.url; // 改名，避免冲突
+// 修改第55行
+if (isMobile && !currentUrl.searchParams.has('desktop')) {
+    // 重定向到带参数版本
+    const redirectUrl = new URL(currentUrl);
+    redirectUrl.searchParams.set('desktop', 'true');
+    return Astro.redirect(redirectUrl.toString(), 302);
+}
 ---
 
 <!DOCTYPE html>
