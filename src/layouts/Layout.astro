@@ -76,8 +76,8 @@ const bgConfig = siteConfig.background;
 // 获取UI透明度设置
 const uiOpacity =
 	typeof window !== "undefined"
-		? localStorage.getItem("ui-opacity") || "0.83"
-		: "0.83";
+		? localStorage.getItem("ui-opacity") || "0.84"
+		: "0.84";
 
 ---
 
@@ -182,9 +182,9 @@ const uiOpacity =
             data-ad-client="ca-pub-6881527283749819">
     </amp-auto-ads>
     <!-- 灰色遮罩层 -->
-    {bgConfig.enable && (
+   <!-- {bgConfig.enable && (
         <div class="fixed inset-0 z-[-1] bg-gray-700/50"></div>
-    )}
+    )}  -->
 		
     <!-- 提高UI透明度 -->
     <div class="content-container" style={`opacity: var(--ui-opacity, 0.01);`}>
