@@ -666,87 +666,8 @@ if (window.swup) {
 } else {
 	document.addEventListener("swup:enable", setup)
 }
-
 </script>
-</body>
-</html>
-<style is:global define:vars={{
-	bannerOffset,
-	'banner-height-home': `${BANNER_HEIGHT_HOME}vh`,
-	'banner-height': `${BANNER_HEIGHT}vh`,
-}}>
-@tailwind components;
-@layer components {
-	/* 全屏背景样式 */
-	body {
-		position: relative;
-	}
-	
-	body::before {
-		content: '';
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		opacity: var(--bg-opacity, 0.5);
-	}
-	
-	.content-container {
-		position: relative;
-		z-index: 1;
-	}
 
-	/* 原有样式保持不变 */
-	.enable-banner.is-home #banner-wrapper {
-		@apply h-[var(--banner-height-home)] translate-y-[var(--banner-height-extend)]
-	}
-	.enable-banner #banner-wrapper {
-		@apply h-[var(--banner-height-home)]
-	}
-
-	.enable-banner.is-home #banner {
-		@apply h-[var(--banner-height-home)] translate-y-0
-	}
-	.enable-banner #banner {
-		@apply h-[var(--banner-height-home)] translate-y-[var(--bannerOffset)]
-	}
-	.enable-banner.is-home #main-grid {
-		@apply translate-y-[var(--banner-height-extend)];
-	}
-	.enable-banner #top-row {
-		@apply h-[calc(var(--banner-height-home)_-_4.5rem)] transition-all duration-300
-	}
-	.enable-banner.is-home #sidebar-sticky {
-		@apply top-[calc(1rem_-_var(--banner-height-extend))]
-	}
-	.navbar-hidden {
-		@apply opacity-0 -translate-y-16
-	}
-	
-	/* 为各个UI组件添加透明度支持 */
-	#navbar-wrapper {
-		opacity: var(--ui-opacity, 0.95);
-		backdrop-filter: blur(8px);
-	}
-	
-	#sidebar, .sidebar {
-		opacity: var(--ui-opacity, 0.95);
-		backdrop-filter: blur(5px);
-	}
-	
-	.card, .post-card, .content-card {
-		opacity: var(--ui-opacity, 0.95);
-		backdrop-filter: blur(3px);
-	}
-	
-	footer {
-		opacity: var(--ui-opacity, 0.9);
-		backdrop-filter: blur(5px);
-	}
-}
-</style>
 <script>
 	console.log("为什么要F12查看源码呢？有什么想法可以找我交流哦！");
 </script>
