@@ -56,11 +56,9 @@ const { remarkPluginFrontmatter } = await entry.render();
 
         <!-- word count, read time and page views -->
         <div class="text-sm text-black/30 dark:text-white/30 flex gap-4 transition">
-            <div>{formatDateToYYYYMMDD(published)}</div>
             <div>|</div>
             <div>{remarkPluginFrontmatter.words} 字</div>
             <div>|</div>
-            <div>{remarkPluginFrontmatter.minutes} 分钟</div>
         </div>
 
     </div>
