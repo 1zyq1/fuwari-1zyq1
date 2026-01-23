@@ -166,7 +166,7 @@ export default defineConfig({
 		build: {
 			rollupOptions: {
 				onwarn(warning, warn) {
-					// temporarily suppress this warning
+					// 暂时抑制此警告
 					if (
 						warning.message.includes("is dynamically imported by") &&
 						warning.message.includes("but also statically imported by")
@@ -175,7 +175,22 @@ export default defineConfig({
 					}
 					warn(warning);
 				},
+				// 添加：排除 Live2D 相关文件
+				external: [/\.js\.map$/, /live2dcubismcore\.js$/],
 			},
 		},
+		// 添加：排除特定文件的插件
+		plugins: [
+			{
+				name: "ignore-live2d-files",
+				enforce: "pre",
+				resolveId(id) {
+					// 忽略所有 .js.map 文件和 Live2D 核心文件
+					if (id.endsWith(".js.map") || id.includes("live2dcubismcore")) {
+						return { id: "", external: true };
+					}
+				},
+			},
+		],
 	},
 });
