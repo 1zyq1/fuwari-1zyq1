@@ -174,19 +174,26 @@ export default defineConfig({
 					}
 					warn(warning);
 				},
+				// 使用函数方式排除
+				external: (id) => {
+					// 排除整个 live2d 目录
+					const normalizedId = id.replace(/\\/g, "/");
+					return normalizedId.includes("src/data/live2d-widget-v3-main/");
+				},
 			},
 		},
 		plugins: [
 			{
-				name: "ignore-live2d-directory",
+				name: "skip-live2d-build",
 				enforce: "pre",
 				resolveId(id) {
-					// 忽略整个 live2d-widget-v3-main 目录
-					if (
-						id.includes("/src/data/live2d-widget-v3-main/") ||
-						id.includes("\\src\\data\\live2d-widget-v3-main\\")
-					) {
-						return { id: "", external: true };
+					const normalizedId = id.replace(/\\/g, "/");
+					if (normalizedId.includes("src/data/live2d-widget-v3-main/")) {
+						// 标记为外部文件，不参与构建
+						return {
+							id: `external-asset:${id}`,
+							external: "relative",
+						};
 					}
 				},
 			},
