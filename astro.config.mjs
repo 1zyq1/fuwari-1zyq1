@@ -166,6 +166,7 @@ export default defineConfig({
 		build: {
 			rollupOptions: {
 				onwarn(warning, warn) {
+					// temporarily suppress this warning
 					if (
 						warning.message.includes("is dynamically imported by") &&
 						warning.message.includes("but also statically imported by")
@@ -174,29 +175,7 @@ export default defineConfig({
 					}
 					warn(warning);
 				},
-				// 使用函数方式排除
-				external: (id) => {
-					// 排除整个 live2d 目录
-					const normalizedId = id.replace(/\\/g, "/");
-					return normalizedId.includes("src/data/live2d-widget-v3-main/");
-				},
 			},
 		},
-		plugins: [
-			{
-				name: "skip-live2d-build",
-				enforce: "pre",
-				resolveId(id) {
-					const normalizedId = id.replace(/\\/g, "/");
-					if (normalizedId.includes("src/data/live2d-widget-v3-main/")) {
-						// 标记为外部文件，不参与构建
-						return {
-							id: `external-asset:${id}`,
-							external: "relative",
-						};
-					}
-				},
-			},
-		],
 	},
 });
